@@ -21,6 +21,23 @@
         </license>
     </licenses>
     
+    <scm>
+        <connection>scm:git:https://github.com/sap-production/XcodeProjectJavaAPI.git</connection>
+        <developerConnection>scm:git:https://github.com/sap-production/XcodeProjectJavaAPI.git</developerConnection>
+        <url>https://github.com/sap-production/XcodeProjectJavaAPI</url>
+    </scm>
+    
+    <developers>
+        <developer>
+            <name>Marcus Holl</name>
+            <email>Marcus.Holl@sap.com</email>
+        </developer>
+        <developer>
+            <name>Alexander Lippling</name>
+            <email>Alexander.Lipplingl@sap.com</email>
+        </developer>
+    </developers>
+    
     <properties>
         <license.excludes>**/*.pbxproj.xml,**/PropertyList-1.0.dtd</license.excludes>
     </properties>
