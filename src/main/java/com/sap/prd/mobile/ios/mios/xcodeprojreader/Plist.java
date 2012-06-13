@@ -19,15 +19,28 @@
  */
 package com.sap.prd.mobile.ios.mios.xcodeprojreader;
 
+/**
+ * The Plist root object. An Xcode project file for example uses the plist format to store its information.
+ */
 public interface Plist
 {
+
   String getVersion();
 
   void setVersion(String value);
 
+  /**
+   * @return the root dict of the Plist.
+   */
   Dict getDict();
 
+  /**
+   * Factory method. Creates a new array but does not add it to the plist.
+   */
   Array createArray();
 
+  /**
+   * Factory method. Creates a new dict but does not add it to the plist.
+   */
   Dict createDict();
 }

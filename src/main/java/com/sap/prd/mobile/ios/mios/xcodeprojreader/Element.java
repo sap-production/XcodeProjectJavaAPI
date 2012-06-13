@@ -35,6 +35,9 @@ public abstract class Element
     return projectFile;
   }
 
+  /**
+   * @return the modifiable dict representation of this element.
+   */
   public Dict getDict()
   {
     return dict;
