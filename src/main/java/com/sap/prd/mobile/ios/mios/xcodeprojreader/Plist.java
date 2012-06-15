@@ -20,7 +20,8 @@
 package com.sap.prd.mobile.ios.mios.xcodeprojreader;
 
 /**
- * The Plist root object. An Xcode project file for example uses the plist format to store its information.
+ * The Plist root object. An Xcode project file for example uses the plist format to store its
+ * information.
  */
 public interface Plist
 {

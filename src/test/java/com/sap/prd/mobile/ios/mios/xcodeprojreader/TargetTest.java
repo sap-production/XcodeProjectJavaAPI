@@ -51,8 +51,8 @@ public class TargetTest
   {
     ReferenceArray<BuildPhase> buildPhases = target.getBuildPhases();
     assertEquals(3, buildPhases.size());
-    assertEquals(PBXSourcesBuildPhase.isa, buildPhases.get(0).getIsA());
-    assertEquals(PBXFrameworksBuildPhase.isa, buildPhases.get(1).getIsA());
-    assertEquals(PBXResourcesBuildPhase.isa, buildPhases.get(2).getIsA());
+    assertEquals(PBXSourcesBuildPhase.class.getSimpleName(), buildPhases.get(0).getIsA());
+    assertEquals(PBXFrameworksBuildPhase.class.getSimpleName(), buildPhases.get(1).getIsA());
+    assertEquals(PBXResourcesBuildPhase.class.getSimpleName(), buildPhases.get(2).getIsA());
   }
 }

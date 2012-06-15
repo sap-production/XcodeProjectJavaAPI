@@ -27,7 +27,7 @@ import com.sap.prd.mobile.ios.mios.xcodeprojreader.ReferenceArray;
 
 public class PBXShellScriptBuildPhase extends BuildPhase
 {
-  public static final String isa = "PBXShellScriptBuildPhase";
+  public static final String isa = PBXShellScriptBuildPhase.class.getSimpleName();
 
   public PBXShellScriptBuildPhase(ProjectFile projectFile)
   {

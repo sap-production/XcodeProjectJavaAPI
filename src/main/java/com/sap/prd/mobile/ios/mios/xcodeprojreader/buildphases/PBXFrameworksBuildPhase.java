@@ -24,8 +24,6 @@ import com.sap.prd.mobile.ios.mios.xcodeprojreader.ProjectFile;
 
 public class PBXFrameworksBuildPhase extends BuildPhase
 {
-  public static final String isa = "PBXFrameworksBuildPhase";
-
   public PBXFrameworksBuildPhase(ProjectFile projectFile)
   {
     this(projectFile, projectFile.createDict());

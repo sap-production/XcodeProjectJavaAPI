@@ -24,8 +24,6 @@ import com.sap.prd.mobile.ios.mios.xcodeprojreader.ProjectFile;
 
 public class PBXCopyFilesBuildPhase extends BuildPhase
 {
-  public static final String isa = "PBXCopyFilesBuildPhase";
-
   public PBXCopyFilesBuildPhase(ProjectFile projectFile)
   {
     this(projectFile, projectFile.createDict());
