@@ -93,8 +93,18 @@ public class JAXBPlistParserTest
     File xmlProj = File.createTempFile("project", ".pbxproj");
     xmlProj.deleteOnExit();
 
-    parser.convert(fileNameOpenStep, xmlProj.getAbsolutePath());
-    Plist plist = parser.load(xmlProj.getAbsolutePath());
+    Plist plist = null;
+    try
+    {
+      parser.convert(fileNameOpenStep, xmlProj.getAbsolutePath());
+      plist = parser.load(xmlProj.getAbsolutePath());
+    }
+    catch (Exception ex)
+    {
+      // Skip this test if the conversion or loading failed and we're not in Mac OS X
+      if (!System.getProperty("os.name").equals("Mac OS X"))
+        return;
+    }
     assertEquals("1.0", plist.getVersion());
   }
 

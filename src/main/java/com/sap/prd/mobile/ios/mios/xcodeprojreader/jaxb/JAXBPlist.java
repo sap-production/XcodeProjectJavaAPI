@@ -55,7 +55,7 @@ public class JAXBPlist implements Plist
     return dict;
   }
 
-  void setDict(Dict dict)
+  public void setDict(Dict dict)
   {
     this.dict = dict;
   }

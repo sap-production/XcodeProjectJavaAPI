@@ -29,6 +29,7 @@ import java.io.Writer;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.PropertyException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.ValidationEvent;
 import javax.xml.bind.ValidationEventHandler;
@@ -45,6 +46,8 @@ import com.sap.prd.mobile.ios.mios.xcodeprojreader.Plist;
 
 public class JAXBPlistParser
 {
+  private static final String xmlHeaders = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">";
+
   public Plist load(String projectFile) throws SAXException, ParserConfigurationException, FileNotFoundException,
         JAXBException
   {
@@ -129,10 +132,14 @@ public class JAXBPlistParser
     JAXBContext ctx = JAXBContext.newInstance(com.sap.prd.mobile.ios.mios.xcodeprojreader.jaxb.JAXBPlist.class);
     Marshaller marshaller = ctx.createMarshaller();
     marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-    marshaller
-      .setProperty(
-            "com.sun.xml.internal.bind.xmlHeaders",
-            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">");
+    try
+    {
+      marshaller.setProperty("com.sun.xml.internal.bind.xmlHeaders", xmlHeaders);
+    }
+    catch(PropertyException ex)
+    {
+      marshaller.setProperty("com.sun.xml.bind.xmlHeaders", xmlHeaders);
+    }
     marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
     marshaller.marshal(plist, projectFile);
   }
